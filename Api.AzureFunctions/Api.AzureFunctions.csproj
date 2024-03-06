@@ -26,6 +26,9 @@
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Api.Models\Api.Models.csproj" />
+      <ProjectReference Include="..\Api.Repository.Contracts\Api.Repository.Contracts.csproj" />
+      <ProjectReference Include="..\Api.Repository\Api.Repository.csproj" />
       <ProjectReference Include="..\Api.Services.Contracts\Api.Services.Contracts.csproj" />
+      <ProjectReference Include="..\Api.Services\Api.Services.csproj" />
     </ItemGroup>
 </Project>
