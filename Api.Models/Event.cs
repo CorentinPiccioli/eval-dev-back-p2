@@ -1,5 +1,5 @@
 ﻿namespace Api.Models;
 
-public class Class1
+public class Event
 {
 }
