@@ -17,4 +17,9 @@ public class EventService : IEventService
     {
         await _eventRepository.CreateEventAsync(eventItem);
     }
+    
+    public Task<IEnumerable<Event>> GetEventsAsync()
+    {
+        return _eventRepository.GetEventsAsync();
+    }
 }

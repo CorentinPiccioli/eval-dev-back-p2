@@ -1,6 +1,7 @@
 ﻿using Api.DbContext;
 using Api.Models;
 using Api.Repository.Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Repository;
 
@@ -16,5 +17,10 @@ public class EventRepository : IEventRepository
     {
         _appDbContext.Events.Add(eventItem);
         await _appDbContext.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<Event>> GetEventsAsync()
+    { 
+        return await _appDbContext.Events.ToListAsync();
     }
 }
