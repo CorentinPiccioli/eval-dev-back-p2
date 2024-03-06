@@ -6,36 +6,46 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Api.AzureFunctions;
-
-public class AddEvent
+namespace Api.AzureFunctions
 {
-    private readonly ILogger _logger;
-    private readonly IEventService _eventService;
-
-    public AddEvent(ILoggerFactory loggerFactory, IEventService eventService)
+    /// <summary>
+    /// Azure Function pour ajouter un événement.
+    /// </summary>
+    public class AddEvent
     {
-        _logger = loggerFactory.CreateLogger<AddEvent>();
-        _eventService = eventService;
-    }
+        private readonly ILogger _logger;
+        private readonly IEventService _eventService;
 
-    [Function("AddEvent")]
-    public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "event/add")]
-        HttpRequestData req)
-    {
-        try
+        /// <summary>
+        /// Constructeur pour initialiser les dépendances.
+        /// </summary>
+        public AddEvent(ILoggerFactory loggerFactory, IEventService eventService)
         {
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            Event eventItem = JsonConvert.DeserializeObject<Event>(requestBody);
-            
-            await _eventService.CreateEventAsync(eventItem);
-            return new StatusCodeResult(200);
+            _logger = loggerFactory.CreateLogger<AddEvent>();
+            _eventService = eventService;
         }
-        catch (Exception e)
+
+        /// <summary>
+        /// Fonction pour ajouter un événement.
+        /// </summary>
+        [Function("AddEvent")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "event/add")]
+            HttpRequestData req)
         {
-            _logger.LogError(e, "An error occurred in AddEvent Azure function");
-            return new ObjectResult(e.Message) { StatusCode = 500 };
+            try
+            {
+                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+                Event eventItem = JsonConvert.DeserializeObject<Event>(requestBody);
+
+                await _eventService.CreateEventAsync(eventItem);
+                return new StatusCodeResult(200);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "An error occurred in AddEvent Azure function");
+                return new ObjectResult(e.Message) { StatusCode = 500 };
+            }
         }
     }
 }
