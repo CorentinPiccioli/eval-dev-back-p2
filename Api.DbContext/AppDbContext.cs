@@ -9,6 +9,6 @@ public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
         
     }
-
+    
     public DbSet<Event> Events { get; set; }
 }
