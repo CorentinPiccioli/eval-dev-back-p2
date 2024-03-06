@@ -1,4 +1,3 @@
-using System.Net;
 using Api.Models;
 using Api.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;

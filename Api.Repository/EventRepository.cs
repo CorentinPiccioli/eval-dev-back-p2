@@ -29,4 +29,11 @@ public class EventRepository : IEventRepository
         _appDbContext.Events.Update(eventItem); 
         await _appDbContext.SaveChangesAsync();
     }
+    
+    public async Task DeleteEventAsync(string id)
+    {
+        var eventItem = await _appDbContext.Events.FindAsync(id);
+        _appDbContext.Events.Remove(eventItem);
+        await _appDbContext.SaveChangesAsync();
+    }
 }
