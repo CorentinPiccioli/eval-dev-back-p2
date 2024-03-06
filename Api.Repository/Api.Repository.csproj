@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Api.DbContext\Api.DbContext.csproj" />
+      <ProjectReference Include="..\Api.Repository.Contracts\Api.Repository.Contracts.csproj" />
+    </ItemGroup>
+
 </Project>

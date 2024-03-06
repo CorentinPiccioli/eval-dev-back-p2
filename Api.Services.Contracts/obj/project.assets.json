@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Api.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Api.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Models.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Api.Models/1.0.0": {
+      "type": "project",
+      "path": "../Api.Models/Api.Models.csproj",
+      "msbuildProject": "../Api.Models/Api.Models.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Api.Models >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/cpiccioli/.nuget/packages/": {}
@@ -31,7 +50,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/cpiccioli/Documents/eval-dev-p2/eval-dev-back-p2/Api.Models/Api.Models.csproj": {
+              "projectPath": "/Users/cpiccioli/Documents/eval-dev-p2/eval-dev-back-p2/Api.Models/Api.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

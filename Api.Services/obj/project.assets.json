@@ -1,11 +1,67 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Api.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Api.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Models.dll": {}
+        }
+      },
+      "Api.Repository.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Api.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Api.Repository.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Repository.Contracts.dll": {}
+        }
+      },
+      "Api.Services.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Api.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Api.Services.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Api.Services.Contracts.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Api.Models/1.0.0": {
+      "type": "project",
+      "path": "../Api.Models/Api.Models.csproj",
+      "msbuildProject": "../Api.Models/Api.Models.csproj"
+    },
+    "Api.Repository.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Api.Repository.Contracts/Api.Repository.Contracts.csproj",
+      "msbuildProject": "../Api.Repository.Contracts/Api.Repository.Contracts.csproj"
+    },
+    "Api.Services.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Api.Services.Contracts/Api.Services.Contracts.csproj",
+      "msbuildProject": "../Api.Services.Contracts/Api.Services.Contracts.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Api.Repository.Contracts >= 1.0.0",
+      "Api.Services.Contracts >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/cpiccioli/.nuget/packages/": {}
@@ -31,7 +87,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/cpiccioli/Documents/eval-dev-p2/eval-dev-back-p2/Api.Repository.Contracts/Api.Repository.Contracts.csproj": {
+              "projectPath": "/Users/cpiccioli/Documents/eval-dev-p2/eval-dev-back-p2/Api.Repository.Contracts/Api.Repository.Contracts.csproj"
+            },
+            "/Users/cpiccioli/Documents/eval-dev-p2/eval-dev-back-p2/Api.Services.Contracts/Api.Services.Contracts.csproj": {
+              "projectPath": "/Users/cpiccioli/Documents/eval-dev-p2/eval-dev-back-p2/Api.Services.Contracts/Api.Services.Contracts.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
