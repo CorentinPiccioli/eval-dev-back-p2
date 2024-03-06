@@ -1,14 +1,6 @@
 ﻿namespace Api.Services.Contracts;
 
-public class Event
+public class Class1
 {
-    public Guid Id { get; set; }
     
-    public string Title { get; set; }
-    
-    public string Description { get; set; }
-    
-    public DateTime Date { get; set; }
-    
-    public string Location { get; set; }
 }
