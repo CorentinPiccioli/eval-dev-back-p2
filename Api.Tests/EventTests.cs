@@ -37,7 +37,7 @@ namespace Api.Tests
         [Test]
         public async Task TestDeleteEventAsync()
         {
-            var id = "testId";
+            var id = new Guid();
             _eventServiceMock.Setup(x => x.DeleteEventAsync(id)).Returns(Task.CompletedTask);
 
             await _eventServiceMock.Object.DeleteEventAsync(id);
