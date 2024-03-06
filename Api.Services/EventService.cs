@@ -28,7 +28,7 @@ public class EventService : IEventService
         await _eventRepository.UpdateEventAsync(eventItem);
     }
     
-    public async Task DeleteEventAsync(string id)
+    public async Task DeleteEventAsync(Guid id)
     {
         await _eventRepository.DeleteEventAsync(id);
     }

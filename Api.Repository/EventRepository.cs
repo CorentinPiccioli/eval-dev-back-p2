@@ -30,7 +30,7 @@ public class EventRepository : IEventRepository
         await _appDbContext.SaveChangesAsync();
     }
     
-    public async Task DeleteEventAsync(string id)
+    public async Task DeleteEventAsync(Guid id)
     {
         var eventItem = await _appDbContext.Events.FindAsync(id);
         _appDbContext.Events.Remove(eventItem);

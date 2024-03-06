@@ -35,7 +35,7 @@ namespace Api.AzureFunctions
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "event/delete/{id}")]
             HttpRequestData req,
-            string id)
+            Guid id)
         {
             try
             {

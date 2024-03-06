@@ -32,6 +32,6 @@ namespace Api.Services.Contracts
         /// </summary>
         /// <param name="id">ID de l'événement à supprimer.</param>
         /// <returns>Tâche asynchrone.</returns>
-        public Task DeleteEventAsync(string id);
+        public Task DeleteEventAsync(Guid id);
     }
 }
